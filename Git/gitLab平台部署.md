@@ -137,11 +137,8 @@ elasticsearch查看集群状态:http://localhost:9200/_cat/health?v
 elasticsearch查看索引列表:http://localhost:9200/_cat/indices?v
 
 
-
 GRANT ALL PRIVILEGES ON *.* TO 'root' @'%' IDENTIFIED BY 'root';
 FLUSH PRIVILEGES;
-
-
 
 --------------------------------------------------------------------
 
@@ -160,38 +157,4 @@ var shouxin= $("input:radio[name='shouxin']:checked").val(); //链接分类
 -vmargs -Xms512m -Xmx512m 
 -XX:PermSize=128m 
 -XX:MaxPermSize=128m -Xmn168m 
--XX:+DisableExplicitGC 
-  
-  
-
-SELECT * FROM `student`    -- a
-SELECT * FROM `course`     -- b
-SELECT * FROM `sc`         -- c
-SELECT * FROM `teacher`
-
-SELECT s.sname,m.* FROM student s,
-(SELECT sid,AVG(score) avgscore FROM sc GROUP BY sid HAVING AVG(score)>80) m WHERE s.sid=m.sid
-
-
-SELECT a.sid,s.sname,COUNT(a.cid) cidnum,SUM(a.score) scoresum
-FROM sc a JOIN student s 
-ON a.sid=s.sid GROUP BY a.sid;
-
-查询编号“001”课程比“002”课程成绩高的所有学生的学号
-
-SELECT * FROM sc t1, sc t2
-WHERE t1.sid = t2.sid AND t1.cid = '01' AND t2.cid = '02'
-AND t1.score > t2.score
-
-
-CREATE VIEW v_huizongkucun 
-AS
-SELECT * FROM
-t_rukudan a,t_rukudan_cp b,t_chukudan c,t_chukudan_cp d
-WHERE CONDITION
-
-t_rukudan
-t_rukudan_cp
-t_chukudan
-t_chukudan_cp
-
+-XX:+DisableExplicitGC

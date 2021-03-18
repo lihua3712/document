@@ -55,7 +55,7 @@ free -m
 
 包上传
 tar zxvf .......
-查看汉化的版本
+查看的版本
 cat /root/gitlab/VERSION
 
 

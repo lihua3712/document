@@ -44,7 +44,6 @@
 > 基于`AMQP`协议，erlang语言开发，是部署最广泛的开源消息中间件,是最受欢迎的开源消息中间件之一。
 
 ![image-20190925215603036](RibbitMQ 实战教程.assets/image-20190925215603036-9419777.png)
-
 `官网`: https://www.rabbitmq.com/
 
 `官方教程`: https://www.rabbitmq.com/#getstarted

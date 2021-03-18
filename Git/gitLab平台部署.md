@@ -73,13 +73,13 @@ rpm -ivh gitlab-ce-10.2.3-ce.0.el7.x86_64.rpm
 
 ### 第三步：GitLab插件安装
 
-汉化包上传：gitlab-patch-zh.tar.gz
+Sinicization包上传：gitlab-patch-zh.tar.gz
 tar zxvf gitlab-patch-zh.tar.gz
 
-#下载汉化补丁
+#下载Sinicization补丁
 git clone https://gitlab.com/xhang/gitlab.git
 
-#查看汉化补丁的版本
+#查看Sinicization补丁的版本
 cat /root/gitlab/VERSION
 
 gitlab-ctl stop    #停止服务
@@ -88,7 +88,7 @@ gitlab-ctl stop    #停止服务
 
 gitlab-ctl restart    #重启服务
 
- **汉化成功！！！** 
+ **Sinicization成功！！！** 
 -----------------fff-------------------------
 	
 /opt/gitlab/embedded/service/gitlab-rails/app/controllers/projects/wikis_controller.rb

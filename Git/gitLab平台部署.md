@@ -89,7 +89,14 @@ gitlab-ctl stop    #停止服务
 gitlab-ctl restart    #重启服务
 
  **Sinicization成功！！！** 
------------------fff-------------------------
+
+        #停止服务
+        gitlab-ctl stop    
+        #启动服务
+        gitlab-ctl start    
+        #重启服务
+        gitlab-ctl restart
+------------------------------------------------------------------------------------------
 	
 /opt/gitlab/embedded/service/gitlab-rails/app/controllers/projects/wikis_controller.rb
 
@@ -100,11 +107,6 @@ response.headers['X-Content-Security-Policy'] = "default-src 'none'"
 yum install policycoreutils-python            
 yum install -y policycoreutils-python	
 strings /lib64/libc.so.6 |grep GLIBC_
-------------------------------------
-#停止服务
-gitlab-ctl stop    
-#启动服务
-gitlab-ctl start    
-#重启服务
-gitlab-ctl restart    
+
+    
   

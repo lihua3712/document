@@ -1,0 +1,25 @@
+1、uname －a ?
+
+Linux查看版本当前操作系统内核信息??
+
+2、cat /proc/version
+
+Linux查看当前操作系统版本信息? ? ??
+
+3、 cat /etc/issue ?或cat /etc/redhat-release
+
+Linux查看版本当前操作系统发行版信息
+
+4、cat /proc/cpuinfo
+
+查看cpu的信息，
+
+processor ? ? 逻辑处理器的id。
+
+physical id ? ?正式的物理处理器的id。
+
+core id? ? ? ? ? ?cpu里面的每个核心的id。
+
+cpu cores ? ? 每个cpu物理处理器中的内核数量。
+
+siblings ? ? ? ? 每个cpu物理处理器中的逻辑处理器的数量。

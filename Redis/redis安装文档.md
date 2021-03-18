@@ -1,8 +1,7 @@
  **Windows环境下安装redis服务：** 
+
 卸载服务：redis-server --service-uninstall
-
 开启服务：redis-server --service-start
-
 停止服务：redis-server --service-stop
 
 设置密码（永久）：

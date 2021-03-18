@@ -1,4 +1,4 @@
-服务器FTP手册
+                                                                **  服务器FTP手册** 
 1.ftp安装配置目录/etc/vsftpd/ 端口21
 2.ftp上传文件路径/home/ftpuser/file/
 3.配置文件说明

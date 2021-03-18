@@ -51,9 +51,9 @@ free -m
 
 
 
------汉化gitLab私有平台--------	
+-----gitLab私有平台--------	
 
-汉化包上传
+包上传
 tar zxvf .......
 查看汉化的版本
 cat /root/gitlab/VERSION

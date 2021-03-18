@@ -1,3 +1,7 @@
+
+elasticsearch查看集群状态:http://localhost:9200/_cat/health?v
+elasticsearch查看索引列表:http://localhost:9200/_cat/indices?v
+
 配置java环境变量...
 **安装成windows服务**
 1.进入ElasticSearch 的bin 目录 执行elasticsearch-service.bat install这时已经是windows服务了，如下图所示：

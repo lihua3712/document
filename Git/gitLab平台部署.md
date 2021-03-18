@@ -65,9 +65,13 @@ rpm -ivh gitlab-ce-10.2.3-ce.0.el7.x86_64.rpm
     netstat -anup | grep :80
     #清空规则
     iptables -F
+    #查看已经使用4G以上内存
     free -m
 
------gitLab私有平台--------	
+登录并启动GitLab:
+登录成功，到此gitLab已经安装成功
+
+### 第三步：GitLab插件安装
 
 包上传
 tar zxvf .......

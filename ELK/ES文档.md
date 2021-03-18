@@ -1,4 +1,3 @@
-
 elasticsearch查看集群状态:http://localhost:9200/_cat/health?v
 elasticsearch查看索引列表:http://localhost:9200/_cat/indices?v
 

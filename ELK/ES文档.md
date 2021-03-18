@@ -1,3 +1,4 @@
+配置java环境变量...
 **安装成windows服务**
 1.进入ElasticSearch 的bin 目录 执行elasticsearch-service.bat install这时已经是windows服务了，如下图所示：
 ![输入图片说明](https://images.gitee.com/uploads/images/2021/0318/111722_6b40fe1b_5296156.png "屏幕截图.png")

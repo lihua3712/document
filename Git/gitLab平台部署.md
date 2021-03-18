@@ -21,50 +21,51 @@ cat /proc/swaps
     5.查次查看swap分区是否启动,有数据则说明设置成功了
       cat /proc/swaps
 ### 第二步：安装GitLab需要的组件
----------@@安装GitLab需要的组件@@-----------
-mv /etc/yum.repos.d/CentOS-* /opt/
-yum install curl policycoreutils openssh-server openssh-client postfix -y
+     mv /etc/yum.repos.d/CentOS-* /opt/
+     yum install curl policycoreutils openssh-server openssh-client postfix -y
  _备注：_                               
 _yum clean all            
 yum makecache            
 yum update_ 
 
-#默认使用Postfix发送邮件
-systemctl start postfix
-#清空规则
-iptables -F       
-
-
-安装gitLab:
+    #默认使用Postfix发送邮件
+    systemctl start postfix
+    #清空规则
+    iptables -F  
+     
+ **安装gitLab:** 
 将下载的软件包gitlab-ce-10.2.3-ce.0.el7.x86_64.rpm上传到linux系统中。
-yum install lrzsz
 
-rz
+    安装插件：
+    yum install lrzsz
+    选择软件包：
+    rz(手动选择)
+    wget https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el7/gitlab-ce-10.8.4-ce.0.el7.x86_ 64.rpm（wget方式下载）
+ 
+rpm -ivh gitlab-ce-10.2.3-ce.0.el7.x86_64.rpm
+最终，gitLab是安装到：
 
-wget https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el7/gitlab-ce-10.8.4-ce.0.el7.x86_64.rpm
-gitlab-ce-10.2.3-ce.0.el7.x86_64.rpm 
+    ls /opt/gitlab/
 
+修改配置文件：（修改gitlab外部访问地址）
 
-rpm -ivh .......
+    vim /etc/gitlab/gitlab.rb
+    external_url 'http://gitlab.example.com'
+    ==>>         'http://192.168.18.128'
 
-vim /etc/gitlab/gitlab.rb
+配置并启动GitLab:
 
-gitlab-ctl reconfigure    #重新配置
-
-
-gitlab-ctl restart    #重启服务
-
-
-gitlab-ctl status    #重启服务
-
-
-netstat -anup | grep :80
-
-iptables -F
-
-free -m
-
-
+    #重新配置，改完配置文件需重新配置再重启，否则不生效
+    gitlab-ctl reconfigure    
+    #重启服务
+    gitlab-ctl restart        
+    #重启状态 
+    gitlab-ctl status  
+    #查看网络端口情况       
+    netstat -anup | grep :80
+    #清空规则
+    iptables -F
+    free -m
 
 -----gitLab私有平台--------	
 

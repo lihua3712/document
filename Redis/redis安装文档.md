@@ -1,4 +1,4 @@
-Windows环境下安装redis服务：
+ **Windows环境下安装redis服务：** 
 卸载服务：redis-server --service-uninstall
 
 开启服务：redis-server --service-start

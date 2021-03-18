@@ -1,27 +1,42 @@
  **centos7安装部署gitlab服务器** 
 
--------------------------搭建gitLab私有服务-----------------------
-查看swap分区是否启动,有数据则说明设置成功了
+### 第一步：查看并设置分区
+ _（打开swap分区，要不然内存不到4G以上会崩溃访问不了）_ 
+ **一** ：查看swap分区是否启动,有数据则说明设置成功了
 cat /proc/swaps
-1.创建swap分区(/data/swap       /mnt/swap)
-dd if=/dev/zero of=/mnt/swap bs=512 count=8388616
-2.通过mkswap命令将上面新建出的文件做成swap分区
-mkswap /mnt/swap
-3.cat /proc/sys/vm/swappiness               <<<<-------->>>>  0
-    sysctl -w vm.swappiness=60              <<<<-------->>>>  60
-4.启动分区
-  swapon /mnt/swap
-  echo "/mnt/swap swap swap defaults 0 0">>/etc/fstab
-5.查次查看swap分区是否启动,有数据则说明设置成功了
-cat /proc/swaps
+如果只有标题栏，而查不出来数据，那就是没有swap分区。下面是解决方法：
 
+    1.创建swap分区(有的是/data/swap，也有的是/mnt/swap)
+     dd if=/dev/zero of=/mnt/swap bs=512 count=8388616
+    2.通过mkswap命令将上面新建出的文件做成swap分区
+     mkswap /mnt/swap
+    3.查看内核参数vm.swappiness中的数值是否为0，如果为0则根据实际需要调整成60
+      a.查看参数
+      cat /proc/sys/vm/swappiness
+      b.若是0设置参数
+      sysctl -w vm.swappiness=60           
+    4.启动分区
+      swapon /mnt/swap
+      echo "/mnt/swap swap swap defaults 0 0">>/etc/fstab
+    5.查次查看swap分区是否启动,有数据则说明设置成功了
+      cat /proc/swaps
+### 第二步：安装GitLab需要的组件
 ---------@@安装GitLab需要的组件@@-----------
-mv /etc/yum.repos.d/CentOS-*/opt/
-yum install curl policycoreutils openssh-server openssh-client postfix -y                              yum clean all              yum makecache             yum update
-默认使用Postfix发送邮件
-systemctl start postfix
-iptables -F       #清空规则
+mv /etc/yum.repos.d/CentOS-* /opt/
+yum install curl policycoreutils openssh-server openssh-client postfix -y
+ _备注：_                               
+_yum clean all            
+yum makecache            
+yum update_ 
 
+#默认使用Postfix发送邮件
+systemctl start postfix
+#清空规则
+iptables -F       
+
+
+安装gitLab:
+将下载的软件包gitlab-ce-10.2.3-ce.0.el7.x86_64.rpm上传到linux系统中。
 yum install lrzsz
 
 rz

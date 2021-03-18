@@ -1,1 +1,1 @@
-sss
+ **centos7安装部署gitlab服务器** 

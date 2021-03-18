@@ -73,33 +73,38 @@ rpm -ivh gitlab-ce-10.2.3-ce.0.el7.x86_64.rpm
 
 ### 第三步：GitLab插件安装
 
-包上传
-tar zxvf .......
-查看的版本
-cat /root/gitlab/VERSION
+汉化包上传：gitlab-patch-zh.tar.gz
+tar zxvf gitlab-patch-zh.tar.gz
 
+#下载汉化补丁
+git clone https://gitlab.com/xhang/gitlab.git
+
+#查看汉化补丁的版本
+cat /root/gitlab/VERSION
 
 gitlab-ctl stop    #停止服务
 
 /usr/bin/cp -rv   /root/gitlab/*   /opt/gitlab/embedded/service/gitlab-rails/
 
 gitlab-ctl restart    #重启服务
-------------------------------------------------------------------------------------------------------------
 
+ **汉化成功！！！** 
+-----------------fff-------------------------
 	
 /opt/gitlab/embedded/service/gitlab-rails/app/controllers/projects/wikis_controller.rb
 
 response.headers['Content-Security-Policy'] = "default-src 'none'"
 response.headers['X-Content-Security-Policy'] = "default-src 'none'"
 将两行中的none，改成self
- 
-	
-	
-yum install policycoreutils-python             #########	
+ 	
+yum install policycoreutils-python            
 yum install -y policycoreutils-python	
 strings /lib64/libc.so.6 |grep GLIBC_
--------------------------------
-gitlab-ctl stop    #停止服务
-gitlab-ctl start    #启动服务
-gitlab-ctl restart    #重启服务
+------------------------------------
+#停止服务
+gitlab-ctl stop    
+#启动服务
+gitlab-ctl start    
+#重启服务
+gitlab-ctl restart    
   

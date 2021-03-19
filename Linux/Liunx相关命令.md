@@ -23,3 +23,11 @@ core id? ? ? ? ? ?cpu里面的每个核心的id。
 cpu cores ? ? 每个cpu物理处理器中的内核数量。
 
 siblings ? ? ? ? 每个cpu物理处理器中的逻辑处理器的数量。
+
+
+修改yum源，在安装更新rpm包时获得比较理想的速度。国内比较快的有163源、sohu源。这里以163源为例子。
+cd /etc/yum.repos.d
+mv CentOS-Base.repo CentOS-Base.repo.backup
+wget http://mirrors.163.com/.help/CentOS6-Base-163.repo
+mv CentOS6-Base-163.repo CentOS-Base.repo
+yum clean all

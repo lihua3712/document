@@ -40,7 +40,7 @@ yum update_
     yum install lrzsz
     选择软件包：
     rz(手动选择)
-    wget https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el7/gitlab-ce-10.8.4-ce.0.el7.x86_ 64.rpm（wget方式下载）
+    wget https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el7/gitlab-ce-10.8.4-ce.0.el7.x86_64.rpm（wget方式下载）
  
 rpm -ivh gitlab-ce-10.2.3-ce.0.el7.x86_64.rpm
 最终，gitLab是安装到：

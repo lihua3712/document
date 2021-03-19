@@ -31,3 +31,6 @@ mv CentOS-Base.repo CentOS-Base.repo.backup
 wget http://mirrors.163.com/.help/CentOS6-Base-163.repo
 mv CentOS6-Base-163.repo CentOS-Base.repo
 yum clean all
+
+没有已启用的仓库。 执行 "yum repolist all" 查看您拥有的仓库。
+您可以用 yum-config-manager --enable &lt;仓库名&gt; 来启用仓库

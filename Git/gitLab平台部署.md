@@ -41,8 +41,12 @@ yum update_
     选择软件包：
     rz(手动选择)
     wget https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el7/gitlab-ce-10.8.4-ce.0.el7.x86_64.rpm（wget方式下载）
- 
+
 rpm -ivh gitlab-ce-10.2.3-ce.0.el7.x86_64.rpm
+
+检测到需要：policycoreutils-python 
+则：yum install policycoreutils-python 
+
 最终，gitLab是安装到：
 
     ls /opt/gitlab/

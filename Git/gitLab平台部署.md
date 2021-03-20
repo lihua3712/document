@@ -61,7 +61,7 @@ rpm -ivh gitlab-ce-10.2.3-ce.0.el7.x86_64.rpm
     gitlab-ctl restart        
     #重启状态 
     gitlab-ctl status  
-    #查看网络端口情况       
+    #查看网络端口情况（centerOS安装netstat命令：yum install net-tools）       
     netstat -anup | grep :80
     #清空规则
     iptables -F

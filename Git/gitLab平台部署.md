@@ -148,7 +148,7 @@ cat /root/gitlab/VERSION
  #停止服务
 gitlab-ctl stop   
 
-#将解压的汉化包覆盖在gitlab部署上
+#将解压的包覆盖在gitlab部署上
 /usr/bin/cp -rv   /root/gitlab/*   /opt/gitlab/embedded/service/gitlab-rails/
 
 gitlab-ctl restart    #重启服务

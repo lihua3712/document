@@ -61,7 +61,7 @@ rpm -ivh gitlab-ce-10.2.3-ce.0.el7.x86_64.rpm
     gitlab-ctl restart        
     #重启状态 
     gitlab-ctl status  
-    #查看网络端口情况（centerOS安装netstat命令：yum install net-tools）       
+    #查看网络端口情况       
     netstat -anup | grep :80
     #清空规则
     iptables -F
@@ -145,8 +145,10 @@ git clone https://gitlab.com/xhang/gitlab.git
 #查看Sinicization补丁的版本
 cat /root/gitlab/VERSION
 
-gitlab-ctl stop    #停止服务
+ #停止服务
+gitlab-ctl stop   
 
+#将解压的汉化包覆盖在gitlab部署上
 /usr/bin/cp -rv   /root/gitlab/*   /opt/gitlab/embedded/service/gitlab-rails/
 
 gitlab-ctl restart    #重启服务

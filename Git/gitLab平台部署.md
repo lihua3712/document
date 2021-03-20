@@ -40,19 +40,15 @@ yum update_
     yum install lrzsz
     选择软件包：
     rz(手动选择)
-    wget https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el7/gitlab-ce-10.8.4-ce.0.el7.x86_64.rpm（wget方式下载）
-
+    wget https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el7/gitlab-ce-10.8.4-ce.0.el7.x86_ 64.rpm（wget方式下载）
+ 
 rpm -ivh gitlab-ce-10.2.3-ce.0.el7.x86_64.rpm
-
-检测到需要：policycoreutils-python 
-则：yum install policycoreutils-python 
-
 最终，gitLab是安装到：
 
     ls /opt/gitlab/
 
 修改配置文件：（修改gitlab外部访问地址）
-
+--注：查看端口是否被占用，防火墙是否放开--，
     vim /etc/gitlab/gitlab.rb
     external_url 'http://gitlab.example.com'
     ==>>         'http://192.168.18.128'
@@ -73,7 +69,70 @@ rpm -ivh gitlab-ce-10.2.3-ce.0.el7.x86_64.rpm
     free -m
 
 登录并启动GitLab:
-登录成功，到此gitLab已经安装成功
+登录成功，到此gitLab已经安装成功。。。。
+ 
+ ****其他****  
+ **邮件配置:** 
+
+            gitlab_rails['smtp_enable'] = true
+            gitlab_rails['smtp_address'] = "your.smtp.server"
+            gitlab_rails['smtp_port'] = 465
+            gitlab_rails['smtp_user_name'] = "your.smtp user"
+            gitlab_rails['smtp_password'] = "your.smtp password"
+            gitlab_rails['smtp_domain'] = "your.demain.com"
+            gitlab_rails['smtp_authentication'] = "login"
+            gitlab_rails['smtp_enable_starttls_auto'] = true
+            gitlab_rails['smtp_openssl_verify_mode'] = 'peer'
+            gitlab_rails['gitlab_email_from'] = 'gitlab@mail.domain.com'
+            gitlab_rails['gitlab_email_reply_to'] = 'noreply@mail.domain.com'
+
+
+ **查看服务：** 
+A.查看服务状态
+
+            [root@localhost ~]# gitlab-ctl status
+            run: alertmanager: (pid 224124) 81166s; run: log: (pid 223418) 81323s
+            run: gitaly: (pid 224146) 81166s; run: log: (pid 223304) 81324s
+            run: gitlab-monitor: (pid 224167) 81166s; run: log: (pid 223352) 81324s
+            run: gitlab-workhorse: (pid 224192) 81165s; run: log: (pid 223250) 81325s
+            run: logrotate: (pid 236092) 1964s; run: log: (pid 223251) 81325s
+            run: nginx: (pid 227942) 80560s; run: log: (pid 223181) 81326s
+            run: node-exporter: (pid 224294) 81164s; run: log: (pid 223308) 81324s
+            run: postgres-exporter: (pid 224307) 81163s; run: log: (pid 223428) 81323s
+            run: postgresql: (pid 224318) 81163s; run: log: (pid 223216) 81325s
+            run: prometheus: (pid 224327) 81162s; run: log: (pid 223417) 81323s
+            run: redis: (pid 224371) 81162s; run: log: (pid 223215) 81325s
+            run: redis-exporter: (pid 224376) 81162s; run: log: (pid 223354) 81324s
+            run: sidekiq: (pid 227863) 80573s; run: log: (pid 223158) 81326s
+            run: unicorn: (pid 228149) 80549s; run: log: (pid 223157) 81326s
+             
+            格式：
+            进程名称：（进程ID编号）进程运行时间（秒）；进程的日志服务进程Id  日志运行时间
+             
+            run    表示进程运行正常
+            down   表示进程没有启动或者挂掉，我们可以查看服务的日志信息，来定位问题。
+
+
+B.查看服务日志：
+
+        # 检查redis的日志
+        gitlab-ctl tail redis
+        # 检查postgresql的日志
+        gitlab-ctl tail postgresql
+        # 检查gitlab-workhorse的日志
+        gitlab-ctl tail gitlab-workhorse
+        # 检查logrotate的日志
+        gitlab-ctl tail logrotate
+        # 检查nginx的日志
+        gitlab-ctl tail nginx
+        # 检查sidekiq的日志
+        gitlab-ctl tail sidekiq
+        # 检查unicorn的日志
+        gitlab-ctl tail unicorn
+
+注：每次修改完配置，记得启动配置更新。
+
+
 
 ### 第三步：GitLab插件安装
 

@@ -34,3 +34,6 @@ yum clean all
 
 没有已启用的仓库。 执行 "yum repolist all" 查看您拥有的仓库。
 您可以用 yum-config-manager --enable &lt;仓库名&gt; 来启用仓库
+
+yum安装netstat:
+yum install net-tools

@@ -33,7 +33,7 @@ c.输入quit;命令退出 MySQL 重新登录，此时密码已经修改为刚才
 
 
  **授权语句：** 
-GRANT ALL PRIVILEGES ON *.* TO 'root' @'%' IDENTIFIED BY 'root';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root';
  **刷新权限：** 
 FLUSH PRIVILEGES;
 

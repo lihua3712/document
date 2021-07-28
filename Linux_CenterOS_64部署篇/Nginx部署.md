@@ -1,3 +1,4 @@
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0728/155642_2bf76640_5296156.png "屏幕截图.png")
 1.安装依赖包
 
         //一键安装上面四个依赖
@@ -64,4 +65,55 @@ centOS7关闭防火墙命令： systemctl stop firewalld.service
     ./nginx 启动
     ./nginx -s stop 关闭
     ./nginx -s reload 重启
+
+8.配置nginx开机启动
+
+切换到/lib/systemd/system/目录，创建nginx.service文件vim nginx.service
+
+    $ cd /lib/systemd/system/
+    $ vim nginx.service
+
+添加如下内容
+
+    [Unit]
+    Description=nginx 
+    After=network.target 
+       
+    [Service] 
+    Type=forking 
+    ExecStart=/usr/local/nginx/sbin/nginx
+    ExecReload=/usr/local/nginx/sbin/nginx reload
+    ExecStop=/usr/local/nginx/sbin/nginx quit
+    PrivateTmp=true 
+       
+    [Install] 
+    WantedBy=multi-user.target
+
+退出并保存文件，执行如下名使nginx开机启动
+
+    $ systemctl enable nginx.service
+
+
+    # 启动nginx
+    $ systemctl start nginx.service
+    
+    # 结束nginx
+    $ systemctl stop nginx.service
+    
+    # 重启nginx
+    $ systemctl restart nginx.service
+
+验证是否安装成功
+
+    # 你要将80端口添加到防火墙中
+    $ firewall-cmd --zone=public --add-port=80/tcp --permanent
+    #重新加载
+    $ firewall-cmd --reload
+    
+    在浏览器访问如下地址
+    http://192.168.2.204/
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0728/160434_ecc53a5a_5296156.png "屏幕截图.png")
+
+
+
 

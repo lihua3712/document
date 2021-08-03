@@ -21,4 +21,14 @@ hostname，查看当前的主机名为
 重启生效
 ```
 
+```
+关闭防火墙：
+开启：service iptables start
+关闭：service iptables stop
+
+永久关闭防火墙：
+开启：chkconfig iptables on 
+关闭：chkconfig iptables off
+```
+
 

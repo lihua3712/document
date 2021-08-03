@@ -37,3 +37,5 @@ redis连接命令
 默认情况，Redis不是在后台运行，我们需要把redis放在后台运行
 vim /usr/local/redis/redis.conf  #自己redis解压后的文件 修改之前记得备份
 将daemonize的值改为yes
+
+requirepass 连接密码（注释）

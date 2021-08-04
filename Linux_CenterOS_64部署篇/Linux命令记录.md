@@ -53,5 +53,12 @@ hostname，查看当前的主机名为
 
 ```
 
+```
+固定ip地址
+参考虚拟机
+刷新配置：
+systemctl restart network
+```
+
 
 

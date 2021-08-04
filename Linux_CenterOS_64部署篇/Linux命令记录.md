@@ -60,5 +60,13 @@ hostname，查看当前的主机名为
 systemctl restart network
 ```
 
+```
+1.  如果是新安装的操作系统，要先以管理员身份，升级系统：
+   #sudo yum update
+
+2.  如果wget没有安装，运行：
+  # yum install wget
+```
+
 
 

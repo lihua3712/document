@@ -33,7 +33,12 @@ c.输入quit;命令退出 MySQL 重新登录，此时密码已经修改为刚才
 
 
  **授权语句：** 
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root';
+```
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' with grant option;
+WITH GRANT OPTION 这个选项表示该用户可以将自己拥有的权限授权给别人。注意：经常有人在创建操作用户的时候不指定WITH GRANT OPTION选项导致后来该用户不能使用GRANT命令创建用户或者给其它用户授权。
+如果不想这个用户有这个grant的权限，可以不加这句
+```
+
  **刷新权限：** 
 FLUSH PRIVILEGES;
 

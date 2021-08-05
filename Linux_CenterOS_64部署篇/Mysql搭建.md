@@ -28,6 +28,12 @@ mariadb-libs-5.5.56-2.el7.x86_64
 [root@iz2zehvxttbua2f45dp7ihz local]# mkdir mysql
 [root@iz2zehvxttbua2f45dp7ihz local]# cd mysql
 ```
+
+为了避免出现权限问题，给mysql解压文件所在目录赋予最大权限
+```
+chmod -R 777 mysql
+```
+
 这里建议使用ftp上传，安装xftp或者其他ftp工具，使用ftp连接后进行上传，上传到/usr/local/mysql目录
 查看文件目录位置及文件信息
 ![输入图片说明](https://images.gitee.com/uploads/images/2021/0805/110428_0e325f31_5296156.png "屏幕截图.png")

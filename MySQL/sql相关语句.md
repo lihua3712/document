@@ -48,6 +48,13 @@ FLUSH PRIVILEGES;
 ```
 ALTER DATABASE  `ft-business-dev` CHARACTER SET  utf8mb4;
 ```
+查询字符编码集
+
+```
+SHOW VARIABLES LIKE '%char%'
+SHOW VARIABLES LIKE '%collation%'
+SHOW CHARSET LIKE '%utf8mb4%';
+```
 
 
 

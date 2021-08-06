@@ -40,5 +40,14 @@ WITH GRANT OPTION 这个选项表示该用户可以将自己拥有的权限授�
 ```
 
  **刷新权限：** 
+
+```
 FLUSH PRIVILEGES;
+```
+ **修改数据库字符集：** 
+```
+ALTER DATABASE  `ft-business-dev` CHARACTER SET  utf8mb4;
+```
+
+
 

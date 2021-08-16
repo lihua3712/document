@@ -114,6 +114,113 @@ centOS7关闭防火墙命令： systemctl stop firewalld.service
     http://192.168.2.204/
 ![输入图片说明](https://images.gitee.com/uploads/images/2021/0728/160434_ecc53a5a_5296156.png "屏幕截图.png")
 
+ **nginx使用ssl模块配置支持HTTPS访问** 
+
+前提：
+     1. 配置SSL模块首先需要CA证书，CA证书可以自己手动颁发也可以在阿里云申请，本人在阿里云上申请的证书。（手动颁发可参考文章底部链接）
+     2. 默认情况下ssl模块并未被安装，如果要使用该模块则需要在编译nginx时指定–with-http_ssl_module参数.
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0816/132503_de0f047a_5296156.png "屏幕截图.png")
+在Nginx配置文件中安装证书
+
+```
+  server {
+        listen 80;
+        server_name huangmajia99.com  www.huangmajia99.com;
+        location / {
+        rewrite (.*) https://www.huangmajia99.com$1 permanent;
+        }
+    }
+      
+
+    server {
+        listen       443 ssl;
+        server_name  huangmajia99.com  www.huangmajia99.com;
+        #ssl on;
+        ssl_certificate       cert/6033390_www.huangmajia99.com.pem;
+        ssl_certificate_key   cert/6033390_www.huangmajia99.com.key; 
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+
+        location / {
+            proxy_set_header x-forwarded-for $remote_addr;
+    	      try_files $uri $uri/ @router;             
+    	      root /usr/local/webroot/huangmajia/;
+            index  index.html index.htm;
+        }
+        
+        location @router {
+            rewrite ^.*$ /index.html last;
+         }
+   }
+```
+安装过程中遇见的问题:
+
+```
+nginx: [emerg] unknown directive "ssl" in /usr/local/nginx/conf/nginx.conf:151
+
+nginx: [emerg] the "ssl" parameter requires ngx_http_ssl_module in /usr/local/nginx/conf/nginx.conf:148
+```
+解决方案：
+
+出现这种错误可能是两种情况造成的：
+
+情况一：配置文件格式不正确。
+
+解决方法参考链接：http://blog.csdn.net/yuanyuan_186/article/details/51324082
+
+情况二：ssl模块并未被安装
+
+默认情况下ssl模块并未被安装，如果要使用该模块则需要在编译nginx时指定–with-http_ssl_module参数，这种情况也会导致错误二的出现。
 
 
+
+(1)切换到源码包：
+`cd /root/nginx-1.13.6`
+
+(2)配置信息：
+```
+./configure --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module
+```
+
+(3)配置完成后，运行make进行编译，千万不要进行make install，否则就是覆盖安装。
+`make`
+
+(4)然后备份原有已经安装好的nginx
+```
+cp /usr/local/nginx/sbin/nginx /usr/local/nginx/sbin/nginx.bak
+```
+
+(5)停止Nginx，正常命令直接 nginx -s stop就可以
+`nginx -s stop`
+
+如果关不掉，就直接Kill掉进程。ps aux | grep 进程名 查看进程占用的PID号。
+`ps aux|grep nginx`
+
+杀掉查出来的PID就可以了，kill -9 PID 命令用于终止进程。必须先kill掉root对应的PID才能进行下面的三个nobody的PID。
+```
+kill -9 10922
+kill -9 28276
+kill -9 28277
+kill -9 28278
+```
+
+
+(6)将刚刚编译好的nginx覆盖掉原有的nginx
+```
+cp ./objs/nginx /usr/local/nginx/sbin/
+```
+
+(7)启动nginx
+
+```
+nginx
+```
+
+(8)通过下面的命令查看是否已经加入成功。
+
+```
+nginx -V
+```
 

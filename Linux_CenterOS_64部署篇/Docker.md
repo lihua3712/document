@@ -65,4 +65,20 @@ sudo docker run hello-world
 ```
  **阿里云镜像加速：** 
 
+```
+sudo mkdir -p /etc/docker
 
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["https://h6b3qkto.mirror.aliyuncs.com"]
+}
+EOF
+
+sudo systemctl daemon-reload
+
+sudo systemctl restart docker
+```
+
+
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0821/133556_c1406ac2_5296156.png "屏幕截图.png")
+配置使用：

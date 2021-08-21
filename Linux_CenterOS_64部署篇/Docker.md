@@ -50,5 +50,19 @@ sudo systemctl start docker
 ```
 sudo docker run hello-world
 ```
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0821/132101_0b999f49_5296156.png "屏幕截图.png")
+查看docker镜像:
+`docker images`
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0821/132438_934a788b_5296156.png "屏幕截图.png")
+了解：卸载docker
+
+```
+1.卸载依赖
+  sudo yum remove docker-ce docker-ce-cli containerd.io
+2.删除资源
+ sudo rm -rf /var/lib/docker         #docker的默认工作路径！
+ sudo rm -rf /var/lib/containerd
+```
+ **阿里云镜像加速：** 
 
 

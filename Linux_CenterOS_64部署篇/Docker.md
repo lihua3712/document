@@ -126,7 +126,29 @@ mariadb   MariaDB Server is a high performing open sou…   4297      [OK]
 ```
 docker pull  #下载命令
 docker pull mysql
+[root@lh-1 /]# docker pull mysql
+Using default tag: latest
+latest: Pulling from library/mysql
+e1acddbe380c: Pull complete
+bed879327370: Pull complete
+03285f80bafd: Pull complete
+ccc17412a00a: Pull complete
+1f556ecc09d1: Pull complete
+adc5528e468d: Pull complete
+1afc286d5d53: Pull complete
+6c724a59adff: Pull complete
+0f2345f8b0a3: Pull complete
+c8461a25b23b: Pull complete
+3adb49279bed: Pull complete
+77f22cd6c363: Pull complete
+Digest: sha256:d45561a65aba6edac77be36e0a53f0c1fba67b951cb728348522b671ad63f926 #签名
+Status: Downloaded newer image for mysql:latest
+docker.io/library/mysql:latest          #真实地址
 
+
+#等价于
+docker pull mysql
+docker pull docker.io/library/mysql:latest
 ```
 
 

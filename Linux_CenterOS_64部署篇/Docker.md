@@ -108,5 +108,26 @@ SIZE           镜像的大小
 -q   --quiet    #只显示镜像的id
 ```
 
+```
+docker search 搜索命令
+[root@lh-1 /]# docker search mysql
+NAME                              DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+mysql                             MySQL is a widely used, open-source relation…   11308     [OK]
+
+
+#可选项，通过搜索来过滤
+--filter=STARS=3000   #搜索STARS大于3000的
+[root@lh-1 /]# docker search mysql --filter=STARS=3000
+NAME      DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+mysql     MySQL is a widely used, open-source relation…   11308     [OK]
+mariadb   MariaDB Server is a high performing open sou…   4297      [OK]
+```
+
+```
+docker pull  #下载命令
+docker pull mysql
+
+```
+
 
  **容器命令** 

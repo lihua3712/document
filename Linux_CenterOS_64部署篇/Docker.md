@@ -181,3 +181,4 @@ docker rmi -f  $(docker images -aq)          #删除全部镜像
 
 
  **容器命令** 
+说明：有了镜像才能创建容器

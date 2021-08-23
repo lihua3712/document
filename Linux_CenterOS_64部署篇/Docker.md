@@ -149,7 +149,35 @@ docker.io/library/mysql:latest          #真实地址
 #等价于
 docker pull mysql
 docker pull docker.io/library/mysql:latest
+
+
+#下载指定版本命令
+[root@lh-1 /]# docker pull mysql:5.7
+5.7: Pulling from library/mysql
+e1acddbe380c: Already exists
+bed879327370: Already exists
+03285f80bafd: Already exists
+ccc17412a00a: Already exists
+1f556ecc09d1: Already exists
+adc5528e468d: Already exists
+1afc286d5d53: Already exists
+4d2d9261e3ad: Pull complete
+ac609d7b31f8: Pull complete
+53ee1339bc3a: Pull complete
+b0c0a831a707: Pull complete
+Digest: sha256:7cf2e7d7ff876f93c8601406a5aa17484e6623875e64e7acc71432ad8e0a3d7e
+Status: Downloaded newer image for mysql:5.7
+docker.io/library/mysql:5.7
 ```
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0823/105835_d491cab2_5296156.png "屏幕截图.png")
+
+```
+ **删除镜像命令** 
+docker rmi -f  *image id号*                  #删除指定镜像
+docker rmi -f  *image id号*  *image id号*    #删除多个指定镜像
+docker rmi -f  $(docker images -aq)          #删除全部镜像
+```
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0823/110924_71f18459_5296156.png "屏幕截图.png")
 
 
  **容器命令** 

@@ -182,3 +182,65 @@ docker rmi -f  $(docker images -aq)          #删除全部镜像
 
  **容器命令** 
 说明：有了镜像才能创建容器
+下载一个centerOS 
+```
+docker pull centos
+```
+新建容器并启动
+
+```
+docker run [可选参数] image
+
+#参数说明
+--name="NAME"  容器名称 用来区分容器
+-d             后台方式运行
+-it            使用交互方式运行，进入容器查看内容
+-p             指定容器的端口  -p  8080:8080
+        -p  ip:zhu
+        -p  主机端口：容器端口（常用）
+        -p 容器端口
+-p             随机指定端口
+
+
+
+#测试
+[root@lh-1 /]# docker run -it centos /bin/bash
+[root@372c6b9faa54 /]# ls
+bin  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+[root@372c6b9faa54 /]# exit
+[root@lh-1 /]# 
+```
+
+```
+列出所有运行的容器
+docker ps        #列出当前正在运行的容器
+...       -a     #列出当前正在运行的容器+历史运行过的容器
+...       -n=?   #显示最近创建的容器
+...       -q     #只显示容器的编号
+```
+
+```
+退出容器
+exit       #直接容器停止并退出
+Ctrl+P+Q   #容器不停止退出
+```
+
+```
+删除容器
+docker rm 容器id                    #删除指定容器，不能删除正在运行的容器，强制删除rm -f 
+docker rm -f $(docker ps -aq)       #删除所有容器
+docker ps -a -q | xargs docker rm   #删除所有容器
+```
+
+```
+启动和停止容器的操作
+docker start   容器id     #启动容器
+docker restart 容器id     #重动容器
+docker stop    容器id     #停止当前正在运行的容器
+docker kill    容器id     #强制停止当前容器
+```
+
+
+
+
+

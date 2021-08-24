@@ -51,6 +51,7 @@ hostname，查看当前的主机名为
 　　注意：添加端口后，必须用命令firewall-cmd --reload重新加载一遍才会生效
 （5）关闭防火墙端口：firewall-cmd --zone=public --remove-port=9200/tcp --permanent
 
+  （6）查询防火墙端口：firewall-cmd --query-port=8848/tcp
 ```
 
 ```

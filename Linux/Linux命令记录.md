@@ -19,6 +19,20 @@ p，表示显示那个进程在调用
 hostname，查看当前的主机名为
 修改etc/hostname文件修改主机名，输入命令：vim /etc/hostname
 重启生效
+#----------------------------------------------------------
+root@user-PC:~# hostname -i
+hostname: Name or service not known
+ 
+root@user-PC:~# vi /etc/hosts
+10.170.200.148  node148
+ 
+## 设置hostname 
+root@user-PC:~# hostnamectl --static set-hostname node148
+## 再执行的hostname的时候就不会报错了.
+root@user-PC:~# hostname -i
+10.170.200.148
+root@user-PC:~# hostname 
+node148
 ```
 
 ```

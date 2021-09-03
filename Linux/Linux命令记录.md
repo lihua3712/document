@@ -68,12 +68,15 @@ node148
   （6）查询防火墙端口：firewall-cmd --query-port=8848/tcp
 ```
 
+Start......
 ```
 固定ip地址
 参考虚拟机
 刷新配置：
 systemctl restart network
 ```
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0903/101435_9680c834_5296156.png "屏幕截图.png")
+END......
 
 ```
 1.  如果是新安装的操作系统，要先以管理员身份，升级系统：

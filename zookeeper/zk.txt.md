@@ -1,3 +1,5 @@
+
+```
 #!/bin/bash
 case $1 in
 "start"){
@@ -22,3 +24,5 @@ do
 done
 };;
 esac
+
+```

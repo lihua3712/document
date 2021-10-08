@@ -239,6 +239,14 @@ docker restart 容器id     #重动容器
 docker stop    容器id     #停止当前正在运行的容器
 docker kill    容器id     #强制停止当前容器
 ```
+ **其他常用命令** 
+
+
+```
+docker run -d 镜像名
+
+
+```
 
 
 

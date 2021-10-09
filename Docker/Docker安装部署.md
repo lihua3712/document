@@ -241,10 +241,36 @@ docker kill    容器id     #强制停止当前容器
 ```
  **其他常用命令** 
 
+后台启动命令
+```
+# docker run -d 镜像名
+[root@node128 /]# docker run -d centos
+93fac83670ff36d630c78df1bd3eaa4d0c29e3eea3028a3e5e022d8faf370028
+[root@node128 /]#
+[root@node128 /]# docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+[root@node128 /]#
+
+#问题 docker ps ,发现docker停止了
+#常见的坑， docker容器使用后台运行就必须要有一个前台进程，docker发现没有应用就会自动停止
+#nginx ,容器启动后，发现自己没有提供服务，就会立刻停止，就是没有程序了
+```
+查看日志
 
 ```
-docker run -d 镜像名
-
+docker logs -f -t --tail 容器，没有日志
+#自己编写一段shell脚本
+[root@node128 /]# docker run -d centos /bin/sh  -c "while true;do echo lihua...;sleep 1;done"
+ed1ec268b63cdcfb49d0de0542a6302c3868159bf649f03e2c8cda32e6896ff4
+[root@node128 /]#
+[root@node128 /]#
+[root@node128 /]# docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS     NAMES
+ed1ec268b63c   centos    "/bin/sh -c 'while t…"   6 seconds ago   Up 5 seconds             heuristic_galileo
+#显示日志
+      -tf   显示日志
+      --tail num   要显示日志的条数
+[root@node128 /]# docker logs -tf --tail 10 ed1ec268b63c
 
 ```
 

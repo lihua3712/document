@@ -519,6 +519,59 @@ ed1ec268b63c   centos    "/bin/sh -c 'while t…"   25 minutes ago   Up 25 minut
 bin   core.1369  core.1371  core.1373  core.1375  core.1377  core.1379  core.1381  core.1383  dev  home  lib64       media  opt   root  sbin  sys  usr
 boot  core.1370  core.1372  core.1374  core.1376  core.1378  core.1380  core.1382  core.1384  etc  lib   lost+found  mnt    proc  run   srv   tmp  var
 [root@ed1ec268b63c /]# ps -ef
+
+#方式二
+#命令  docker attach 容器id
+
+
+#docker exec 容器id            -- 进入容器后开启一个新的终端，可以在里面操作(常用)
+#docker attach 容器id          -- 进入容器正在执行的终端，不会启动新的进程
+```
+从容器内拷贝文件到主机
+
+```
+docker cp 容器id：容器内路径  目的主机路径
+
+#查看当前主机目录下
+[root@node128 home]# ll
+总用量 0
+-rw-r--r--. 1 root root 0 10月  8 22:41 lihua.java
+[root@node128 home]#
+[root@node128 home]# docker ps
+CONTAINER ID   IMAGE     COMMAND       CREATED         STATUS         PORTS     NAMES
+725775e56fe5   centos    "/bin/bash"   5 minutes ago   Up 5 minutes             determined_elbakyan
+
+#进入docker容器内部
+[root@node128 home]# docker attach 725775e56fe5
+[root@725775e56fe5 /]#
+[root@725775e56fe5 /]# ls
+bin  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+[root@725775e56fe5 /]# cd home/
+[root@725775e56fe5 home]# ls
+
+#在容器内新建一个文件
+[root@725775e56fe5 home]# touch test.java
+[root@725775e56fe5 home]# ll
+bash: ll: command not found
+[root@725775e56fe5 home]# ls
+test.java
+[root@725775e56fe5 home]# exit
+exit
+[root@node128 home]# docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+[root@node128 home]# docker ps -a
+CONTAINER ID   IMAGE     COMMAND       CREATED         STATUS                     PORTS     NAMES
+725775e56fe5   centos    "/bin/bash"   6 minutes ago   Exited (0) 7 seconds ago             determined_elbakyan
+
+#将文件拷贝到主机
+[root@node128 home]# docker cp 725775e56fe5:/home/test.java  /home
+[root@node128 home]#
+[root@node128 home]# ls
+lihua.java  test.java
+[root@node128 home]#
+
+
+#拷贝是一个手动过程 未来使用 -V 卷的技术 ，可以实现
 ```
 
 

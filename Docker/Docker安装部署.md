@@ -273,6 +273,254 @@ ed1ec268b63c   centos    "/bin/sh -c 'while t…"   6 seconds ago   Up 5 seconds
 [root@node128 /]# docker logs -tf --tail 10 ed1ec268b63c
 
 ```
+查看容器中进程信息
+
+```
+#命令  docker top 容器id
+[root@node128 /]# docker top ed1ec268b63c
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                125021              125000              0                   20:00               ?                   00:00:00            /bin/sh -c while true;do echo lihua...;sleep 1;done
+root                128320              125021              0                   20:08               ?                   00:00:00            /usr/bin/coreutils --coreutils-prog-shebang=sleep /usr/bin/sleep 1
+
+```
+查看镜像的元数据
+
+```
+#命令
+docker inspect 容器id
+
+#测试
+[root@node128 /]# docker inspect ed1ec268b63c
+[
+    {
+        "Id": "ed1ec268b63cdcfb49d0de0542a6302c3868159bf649f03e2c8cda32e6896ff4",
+        "Created": "2021-10-08T12:00:31.046039688Z",
+        "Path": "/bin/sh",
+        "Args": [
+            "-c",
+            "while true;do echo lihua...;sleep 1;done"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 125021,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2021-10-08T12:00:32.086525645Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:300e315adb2f96afe5f0b2780b87f28ae95231fe3bdd1e16b9ba606307728f55",
+        "ResolvConfPath": "/var/lib/docker/containers/ed1ec268b63cdcfb49d0de0542a6302c3868159bf649f03e2c8cda32e6896ff4/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/ed1ec268b63cdcfb49d0de0542a6302c3868159bf649f03e2c8cda32e6896ff4/hostname",
+        "HostsPath": "/var/lib/docker/containers/ed1ec268b63cdcfb49d0de0542a6302c3868159bf649f03e2c8cda32e6896ff4/hosts",
+        "LogPath": "/var/lib/docker/containers/ed1ec268b63cdcfb49d0de0542a6302c3868159bf649f03e2c8cda32e6896ff4/ed1ec268b63cdcfb49d0de0542a6302c3868159bf649f03e2c8cda32e6896ff4-json.log",
+        "Name": "/heuristic_galileo",
+        "RestartCount": 0,
+        "Driver": "devicemapper",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "host",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "KernelMemory": 0,
+            "KernelMemoryTCP": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "DeviceId": "46",
+                "DeviceName": "docker-253:0-3151424-e13853936b449f9bd9a2576c667f16985f3cc0ff6aef95785d85a57b8049b9a5",
+                "DeviceSize": "10737418240"
+            },
+            "Name": "devicemapper"
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "ed1ec268b63c",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/bin/sh",
+                "-c",
+                "while true;do echo lihua...;sleep 1;done"
+            ],
+            "Image": "centos",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {
+                "org.label-schema.build-date": "20201204",
+                "org.label-schema.license": "GPLv2",
+                "org.label-schema.name": "CentOS Base Image",
+                "org.label-schema.schema-version": "1.0",
+                "org.label-schema.vendor": "CentOS"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "1f0791d4762c9db1268cf4b3188eda4b3d6134e82736b5493a4e2d50a061f8b5",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {},
+            "SandboxKey": "/var/run/docker/netns/1f0791d4762c",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "dfb39c98a20ba999973822f64a1337eb381c6080836ebfd5938271d741057222",
+            "Gateway": "172.17.0.1",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "172.17.0.2",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "MacAddress": "02:42:ac:11:00:02",
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "8a95c4d15d7c5398f03ee0b1209234ec07130f0a651d42f20cbbaf6116826a36",
+                    "EndpointID": "dfb39c98a20ba999973822f64a1337eb381c6080836ebfd5938271d741057222",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.2",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:11:00:02",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
+
+```
+进入当前正在运行的容器
+
+```
+#我们通常容器都是使用后台方式运行的，需要进入容器，修改一些配置
+
+#命令
+docker exec -it 容器id /bin/bash
+
+#测试
+[root@node128 /]#
+[root@node128 /]# docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS     NAMES
+ed1ec268b63c   centos    "/bin/sh -c 'while t…"   25 minutes ago   Up 25 minutes             heuristic_galileo
+[root@node128 /]#
+[root@node128 /]# docker exec -it ed1ec268b63c /bin/bash
+[root@ed1ec268b63c /]#
+[root@ed1ec268b63c /]# ls
+bin   core.1369  core.1371  core.1373  core.1375  core.1377  core.1379  core.1381  core.1383  dev  home  lib64       media  opt   root  sbin  sys  usr
+boot  core.1370  core.1372  core.1374  core.1376  core.1378  core.1380  core.1382  core.1384  etc  lib   lost+found  mnt    proc  run   srv   tmp  var
+[root@ed1ec268b63c /]# ps -ef
+```
+
 
 
 

@@ -93,6 +93,14 @@ $ docker run -d --name elasticsearch02  -p 9200:9200 -p 9300:9300 -e "discovery.
 #查看 docker stats
 ```
 ![输入图片说明](https://images.gitee.com/uploads/images/2021/1011/141917_77fd8922_5296156.png "屏幕截图.png")
+### **Docker可视化** 
+
+
+```
+Docker 图形化界面管理工具！提供一个后台面板供我们操作！
+[root@node128 ~]# docker run -d -p 8088:9000 --restart=always -v /var/run/docker.sock:/var/run/docker.sock --privileged=true portainer/portainer
+```
+访问测试：http://ip:8088
 
 
 

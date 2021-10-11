@@ -65,6 +65,19 @@ docker exec -it tomcat01 /bin/bash
 
 ```
 
+### **Docker安装elasticsearch+Kibana** 
+
+```
+#es 暴露的端口很多！
+#es 十分的耗内存
+#es 的数据一般需要放置到安全目录！挂载
+#   --net somenetwork ?   网络配置
+
+#启动 elasticsearch
+$ docker network create somenetwork
+$ docker run -d --name elasticsearch  -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.6.2
+```
+
 
 
 

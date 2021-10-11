@@ -46,7 +46,22 @@ docker run -it --rm tomcat:9.0
 
 #之前的启动都是后台启动，停止之后容器是可以查到的，docker run -it --rm * ，一般用来测试，用完即删
 
-#下载再启动
+#下载再启动 
+docker pull tomcat
+
+#启动运行
+docker run -d -p 3355:8080 --name tomcat01 tomcat
+
+#测试访问
+
+#进入容器
+docker exec -it tomcat01 /bin/bash
+
+#发现问题 
+1.linux命令少了
+2.没有webapps.阿里云镜像的原因。默认是最小镜像，所有不必要的都要剔除掉
+#保证最小可运行的环境！
+
 
 ```
 

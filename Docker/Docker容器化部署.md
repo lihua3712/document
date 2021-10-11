@@ -75,10 +75,24 @@ docker exec -it tomcat01 /bin/bash
 
 #启动 elasticsearch
 $ docker network create somenetwork
-$ docker run -d --name elasticsearch  -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.6.2
+$ docker run -d --name elasticsearch01  -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.6.2
+
+#查看cpu的状态
+docker stats
+
+#测试一下是否成功
+
 ```
 
+![输入图片说明](https://images.gitee.com/uploads/images/2021/1011/140420_ecc58101_5296156.png "屏幕截图.png")
 
+```
+#赶紧关闭，增加内存的限制，修改配置文件 -e 环境配置修改
+$ docker run -d --name elasticsearch02  -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -e ES_JAVA_OPTS="-Xms64m -Xmx512m"  elasticsearch:7.6.2
+
+#查看 docker stats
+```
+![输入图片说明](https://images.gitee.com/uploads/images/2021/1011/141917_77fd8922_5296156.png "屏幕截图.png")
 
 
 

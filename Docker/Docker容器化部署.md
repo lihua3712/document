@@ -38,6 +38,17 @@ root@a90b5a285085:/etc/nginx#
 
 
 ```
+### **Docker安装Tomcat** 
+
+```
+#官方的使用
+docker run -it --rm tomcat:9.0
+
+#之前的启动都是后台启动，停止之后容器是可以查到的，docker run -it --rm * ，一般用来测试，用完即删
+
+#下载再启动
+
+```
 
 
 

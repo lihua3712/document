@@ -29,7 +29,7 @@ MySQL,容器删了，需求：Mysql数据可以存储在本地
 #启动起来的时候可以通过 docker inspect 容器id
 ```
 
-![1634017966803](C:\Users\11749\AppData\Roaming\Typora\typora-user-images\1634017966803.png)
+![输入图片说明](https://images.gitee.com/uploads/images/2021/1012/141404_982b52da_5296156.png "屏幕截图.png")
 
 ## 安装mysql
 

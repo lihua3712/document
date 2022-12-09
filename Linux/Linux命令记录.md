@@ -6,6 +6,8 @@
 3.netstat -apn    查看网络状态
 an，按一定顺序排列输出
 p，表示显示那个进程在调用
+
+netstat -tunlp | grep 8080
 ```
 
 ```

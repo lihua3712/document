@@ -2,7 +2,7 @@
     * [Docker镜像讲解](foreword/Docker镜像讲解.md)
     * [SpringCloud基本介绍](foreword/SpringCloud基本介绍.md)
 * Docker
-    * [Docker安装](../Docker/Docker安装.md)
+    * [Docker安装](Docker/Docker安装.md)
     * [Docker核心](../Docker/Docker核心.md)
     * [Docker容器化部署](../Docker/Docker容器化部署.md)
     * [Docker安装中间件](../Docker/Docker安装中间件.md)

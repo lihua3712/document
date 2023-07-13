@@ -27,7 +27,13 @@
         search: {
             placeholder: '搜索',
             noData: '消失的它!',
-            depth: 3
+            depth: 1
+        },
+        count: {
+            countable: true,
+            fontsize: '0.9em',
+            color: 'rgb(90,90,90)',
+            language: 'chinese'
         }
     }
 </script>
@@ -52,5 +58,18 @@
 
 <!--表情icon-->
 <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+
+<!--图片缩放 - Zoom image-->
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+
+<!--字数统计-->
+<script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+
+<!--离线模式-->
+<script>
+    if (typeof navigator.serviceWorker !== 'undefined') {
+        navigator.serviceWorker.register('sw.js')
+    }
+</script>
 </body>
 </html>

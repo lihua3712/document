@@ -1,6 +1,11 @@
 * 序章
     * [Docker镜像讲解](docs/foreword/Docker镜像讲解.md)
     * [SpringCloud基本介绍](docs/foreword/SpringCloud基本介绍.md)
+* CentOS7环境部署篇
+    * [JDK安装](docs/CentOS环境部署篇/JDK安装.md)
+    * [Mysql搭建](docs/CentOS环境部署篇/Mysql搭建.md)
+    * [Nginx部署](docs/CentOS环境部署篇/Nginx部署.md)
+    * [Redis部署](docs/CentOS环境部署篇/Redis部署.md)
 * Docker
     * [Docker安装](docs/Docker/Docker安装.md)
     * [Docker核心](docs/Docker/Docker核心.md)
@@ -8,6 +13,11 @@
     * [Docker安装中间件](docs/Docker/Docker安装中间件.md)
     * [Docker其他内容](docs/Docker/Docker其他内容.md)
     * [笔记](docs/Docker/笔记.md)
-* 架构篇
-    * [架构说明1](architect/mall_arch_01.md)
-    * [架构说明2](architect/mall_arch_02.md)
+* ELK
+    * [ES文档](docs/ELK/ES文档.md)
+* FTP
+    * [服务器FTP手册](docs/FTP/服务器FTP手册.md)
+* GIT
+    * [gitLab平台部署](docs/Git/gitLab平台部署.md)
+    * [git相关命令](docs/Git/git相关命令.md)
+

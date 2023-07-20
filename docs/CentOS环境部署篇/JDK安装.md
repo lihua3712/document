@@ -26,7 +26,7 @@
 
    准备好jdk.tar.gz文件，并使用解压命令tar -zxvf jdk.gz.tar将其解压
    使用vim命令编辑/etc/profile文件，在最后一行追加如下内容
-![输入图片说明](https://images.gitee.com/uploads/images/2021/0728/151323_110261a4_5296156.png "屏幕截图.png")
+![img.png](img.png)
 
      ##jdk1.8
      export JAVA_HOME=/usr/local/java/jdk1.8.0_181
@@ -39,7 +39,7 @@
      $ java -version
      # 输出版本号则表示成功
 
-![输入图片说明](https://images.gitee.com/uploads/images/2021/0728/151504_fcd4adf2_5296156.png "屏幕截图.png")
+![img.png](../../img/img.png)
 
 
 
